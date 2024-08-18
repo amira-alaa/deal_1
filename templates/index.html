@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/design.css') }}">
+    <title>Waste Computing</title>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='img/newImg.png') }}" alt="">
+    </header>
+    <div class="contant">
+        <h1>Waste Computing</h1>
+        <img src="{{ url_for('static', filename='img/bg.png') }}" alt="">
+        <form action="{{url_for('predict')}}" method="post">
+            <input type="text" name="area" id="projectCode" placeholder="area" required>
+            <input type="text" name="height" id="projectCode" placeholder="height" required>
+            <input type="submit" value="get" id="submit">
+        </form>
+        <!-- <table>
+            <tr>
+                <th>Underground floor area (m2)</th>
+                <th>Underground height (m)</th>
+                <th>WGR of MEW (kg/m2)</th>
+                <th>WGR of INW(kg/m2)</th>
+                <th>WGR of ORW (kg/m2)</th>
+                <th>WGR of COW (kg/m2)</th>
+                <th>WGR of HAW (kg/m2)</th>
+            </tr>
+            <tr>
+                <td>1201008.60  </td>
+                <td>97.15 </td>
+                <td>(1193.07) </td>
+                <td>557.67  </td>
+                <td>(208.48) </td>
+                <td>36.88</td>
+                <td>0.00   </td>
+            </tr>
+              
+        </table> -->
+        {% if prediction %}
+            <h2>Waste : <p>{{ prediction }}</p></h2>
+        {% endif %}
+    </div>
+    
+</body>
+</html>
